@@ -35,7 +35,7 @@ void setup() {
    Serial.print("p - Print vars\n");
    Serial.print("k - Enter the ID manually\n");
 
-   ID[0] = 0x01;
+   ID[0] = FAMILY_CODE;
 }
 
 void iButtonWait() {
@@ -51,7 +51,6 @@ void iButtonRead() {
    Serial.print("ID: ");
    for (byte x = 0; x != 8; ++x) {
       ID[x] = arr[x];
-
       if (ID[x] < 0x0A) {
          Serial.print('0');
       }
@@ -77,7 +76,6 @@ void iButtonWrite() {
 
    Serial.print("Ready to write ID ");
    for (byte x = 0; x != 8; ++x) {
-
       if (ID[x] < 0x0A) {
          Serial.print('0');
       }
@@ -160,7 +158,6 @@ void loadConst() {
    Serial.print("Constant ID: ");
    for (byte x = 0; x != 8; ++x) {
       ID[x] = IDconst[x];
-
       if (ID[x] < 0x0A) {
          Serial.print('0');
       }
